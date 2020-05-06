@@ -8,71 +8,65 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/actMain_ivLogo"
         android:layout_width="128dp"
         android:layout_height="128dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+
         android:src="@drawable/ic_hexagon"
         android:layout_margin="16dp"
         />
 
     <TextView
+        android:id="@+id/actMain_tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/actMain_Title"
         android:textSize="32sp"
         android:fontFamily="sans-serif-light"
-        android:layout_marginBottom="32dp"/>
+        android:layout_marginBottom="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/actMain_ivLogo"
+        />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginBottom="16dp">
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_user"
-            android:layout_marginEnd="8dp"
-            android:baselineAlignBottom="true"/>
         
-        <EditText
-            android:layout_width="@dimen/actMain_CredentialsInputWidth"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"
-            android:hint="@string/actMain_InputHintUsername"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/actMain_inUsername"
+        android:layout_width="@dimen/actMain_CredentialsInputWidth"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginBottom="16dp">
+        android:inputType="textEmailAddress"
+        android:maxLines="1"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/actMain_tvTitle"
+        android:drawableStart="@drawable/ic_user_24"
+        android:drawablePadding="8dp"
+        android:hint="@string/actMain_InputHintUsername"/>
 
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_key"
-            android:layout_marginEnd="8dp"
-            android:baselineAlignBottom="true"/>
 
-        <EditText
-            android:layout_width="@dimen/actMain_CredentialsInputWidth"
-            android:layout_height="wrap_content"
-            android:hint="@string/actMain_InputHintPassword"
-            android:inputType="textPassword"
-            android:maxLines="1"/>
+    <EditText
+        android:id="@+id/actMain_inPassword"
+        android:layout_width="@dimen/actMain_CredentialsInputWidth"
+        android:layout_height="wrap_content"
+        android:hint="@string/actMain_InputHintPassword"
+        android:inputType="textPassword"
+        android:layout_below="@id/actMain_inUsername"
+        android:layout_centerHorizontal="true"
+        android:drawableStart="@drawable/ic_key_24"
+        android:drawablePadding="8dp"
+        android:maxLines="1"/>
 
-    </LinearLayout>
 
     <Button
+        android:id="@+id/actMain_btnLogin"
         android:layout_width="@dimen/actMain_LoginButtonWidth"
         android:layout_height="wrap_content"
         android:text="@string/actMain_ButtonLoginText"
-        android:layout_marginTop="120dp"/>
+        android:layout_marginBottom="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        />
 
 
 </RelativeLayout>
