@@ -4,4 +4,5 @@
     <string name="actMain_ButtonLoginText">Login</string>
     <string name="actMain_InputHintUsername">Username</string>
     <string name="actMain_InputHintPassword">Password</string>
+    <string name="actMain_NoSelection">No selection</string>
 </resources>

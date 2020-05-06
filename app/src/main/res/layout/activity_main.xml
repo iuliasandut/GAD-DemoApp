@@ -9,9 +9,21 @@
     android:gravity="center_horizontal"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/actMain_tvSelectedCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:textSize="24sp"
+        android:text="@string/actMain_NoSelection"
+        />
+
     <Spinner
         android:id="@+id/actMain_ddCities"
         android:layout_width="300dp"
         android:layout_height="wrap_content"/>
 
+
+
+    
 </LinearLayout>
