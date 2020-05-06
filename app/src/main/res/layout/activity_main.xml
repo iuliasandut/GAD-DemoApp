@@ -11,10 +11,8 @@
         android:id="@+id/actMain_ivLogo"
         android:layout_width="128dp"
         android:layout_height="128dp"
-
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-
         android:src="@drawable/ic_hexagon"
         android:layout_margin="16dp"
         />
@@ -67,6 +65,5 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         />
-
 
 </RelativeLayout>
