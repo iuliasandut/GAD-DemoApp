@@ -1,5 +1,6 @@
 package com.example.gad.demo.adapter;
 
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,11 +37,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
-        // get the item at the specified position
-        Task current_task = mDataSource.get(position);
-
-        // update the holder instance with the new values
-        holder.update(current_task);
+        holder.update(position);
     }
 
     @Override
@@ -54,18 +51,46 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         private TextView mTVDescription;
         private CheckBox mCBStatus;
 
+        private int     mBoundPosition;
+
         public TaskViewHolder(@NonNull View item_view) {
             super(item_view);
 
             mTVTitle        = item_view.findViewById(R.id.itemTask_tvTitle);
             mTVDescription  = item_view.findViewById(R.id.itemTask_tvDescription);
             mCBStatus       = item_view.findViewById(R.id.itemTask_cbStatus);
+
+            mCBStatus.setOnClickListener(new StatusClickListener());
         }
 
-        public void update(Task task) {
-            mTVTitle.setText(task.getTitle());
-            mTVDescription.setText(task.getDescription());
-            mCBStatus.setChecked(task.isDone());
+        public void update(int position) {
+            mBoundPosition = position;
+
+            Task current_task = mDataSource.get(mBoundPosition);
+
+            mTVTitle.setText(current_task.getTitle());
+            mTVDescription.setText(current_task.getDescription());
+            mCBStatus.setChecked(current_task.isDone());
+
+            if (current_task.isDone())
+                // set strike-through paint flag (or bitwise operation)
+                mTVTitle.setPaintFlags(mTVTitle.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            else
+                // clear strike-through paint flag (and bitwise operation on inverted value)
+                mTVTitle.setPaintFlags(mTVTitle.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
+        }
+
+        public class StatusClickListener implements View.OnClickListener
+        {
+            @Override
+            public void onClick(View v) {
+                Task current_task = mDataSource.get(mBoundPosition);
+                current_task.setStatus(!current_task.getStatus());
+
+                mCBStatus.setChecked(current_task.isDone());
+
+                update(mBoundPosition);
+            }
         }
     }
 
