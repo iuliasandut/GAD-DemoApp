@@ -6,16 +6,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.example.gad.demo.adapter.TaskListAdapter;
-import com.example.gad.demo.model.Task;
+import com.example.gad.demo.adapter.ChatAdapter;
+import com.example.gad.demo.model.ChatMessage;
+import com.example.gad.demo.model.MessageSource;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity
 {
     private RecyclerView mTaskList;
-    private ArrayList<Task> mDataSource;
+    private ArrayList<ChatMessage> mDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +32,18 @@ public class MainActivity extends AppCompatActivity
         mTaskList.setLayoutManager(llm);
 
         // create a mocked data source
-        mDataSource = new ArrayList<Task>();
-        for (int i = 0; i < 30; i++) {
+        mDataSource = new ArrayList<ChatMessage>();
+        for (int i = 0; i < 60; i++) {
+
+            // generate a random source
+            MessageSource source = (new Random().nextInt() % 2 == 0) ? MessageSource.PERSON_A : MessageSource.PERSON_B;
+
             // generate a task, alternate between status "true" and "false"
-            mDataSource.add(new Task("Task #" + i, "Description for task #" + i, (i % 2 == 0)));
+            mDataSource.add(new ChatMessage(source, "Message #"+i));
         }
 
         // create a new adapter instance for a data-source
-        TaskListAdapter adapter = new TaskListAdapter(mDataSource);
+        ChatAdapter adapter = new ChatAdapter(mDataSource);
 
         // set adapter to the recycler view
         mTaskList.setAdapter(adapter);
