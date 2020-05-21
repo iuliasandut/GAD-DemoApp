@@ -9,6 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".UppercaseActivity"></activity>
+        <activity android:name=".ResultActivity" />
+        <activity android:name=".SecondActivity">
+            <intent-filter>
+                <action android:name="com.example.gad.demo.intent.action.SECOND_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

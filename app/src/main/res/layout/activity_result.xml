@@ -6,30 +6,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".ResultActivity">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start next activity (implicit)"
-        android:onClick="doLaunchWithImplicitIntent"/>
+        android:text="END WITH RESULT - YES"
+        android:onClick="doEndWithResultYes"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start next activity (explicit)"
-        android:onClick="doLaunchWithImplicitExplicit"/>
+        android:text="END WITH RESULT - NO"
+        android:onClick="doEndWithResultNo"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start next activity (for results)"
-        android:onClick="doLaunchActivityForResult"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start next activity (with response)"
-        android:onClick="doLaunchActivityForResultWithResponse"/>
-
+        android:text="END WITH RESULT - CANCEL"
+        android:onClick="doEndWithResultCancel"/>
+    
 </LinearLayout>
