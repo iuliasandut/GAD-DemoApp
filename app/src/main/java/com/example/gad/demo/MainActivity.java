@@ -22,12 +22,16 @@ public class MainActivity extends AppCompatActivity
         add("Clark Kent");
         add("Thomas Wayne");
         add("Bruce Wayne");
+        add("Diana Prince");
+        add("Ororo Munroe");
         add("Miles Morales");
         add("Frodo Baggins");
         add("Bilbo Baggins");
         add("Gandalf the Grey");
         add("Rand al-Thor");
         add("Kima Greggs");
+        add("Charles Xavier");
+        add("Jean Grey");
         add("Steve Rogers");
         add("Bruce Banner");
         add("Peter Parker");
@@ -36,11 +40,18 @@ public class MainActivity extends AppCompatActivity
         add("Alex Summers");
     }};
 
+    private ContactsAdapter mAdapter;
+    private RecyclerView mList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mList = findViewById(R.id.actMain_listContacts);
+        mList.setLayoutManager(new LinearLayoutManager(this));
 
+        mAdapter = new ContactsAdapter(mContactsDataSource);
+        mList.setAdapter(mAdapter);
     }
 }
